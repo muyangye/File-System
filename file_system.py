@@ -208,7 +208,7 @@ def test_swap():
     fs.print_files()
     
     
-# There are many other valuable tests to do such as test_stress, but I don't want to spend excessive amount of time in this assignment because I think the example is pretty         exhaustive and the file system is usable
+# There are many other valuable tests to do such as test_stress, but I don't want to spend excessive amount of time because I think the example is pretty exhaustive and the file system is usable
 
 
     
