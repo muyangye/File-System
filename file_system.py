@@ -51,7 +51,7 @@ class SigmaFileSystem:
         return res
     
     
-    # @functionality: Given a file name, file type, and a folder’s unique id, add a new                         file of that type to the given folder
+    # @functionality: Given a file name, file type, and a folder’s unique id, add a new file of that type to the given folder
     # @return: None
     # @runtime: constant
     def add_new_file(self, fileName: str, fileType: str, folderId: int) -> None:
@@ -71,7 +71,7 @@ class SigmaFileSystem:
         self.documents[folderId].sub.append(new_file)
 
         
-    # @funcitonality: Given the name of a file and the id of the folder it’s in, return                         the file’s id
+    # @funcitonality: Given the name of a file and the id of the folder it’s in, return the file’s id
     # @return: int <==> the file's id, if not found return -1
     # @runtime: n
     def get_file_id(self, fileName: str, folderId: int) -> int:
@@ -92,7 +92,7 @@ class SigmaFileSystem:
         return -1
 
     
-    # @functionality: Given a file id and a folder id, move the file into the folder with                       the given id
+    # @functionality: Given a file id and a folder id, move the file into the folder with the given id
     # @return: None
     # @runtime: # of files in the original folder <==> remove_sub()
     def move_file(self, fileId: int, newFolderId: int) -> None:
@@ -115,7 +115,7 @@ class SigmaFileSystem:
         self.documents[newFolderId].sub.append(file)
         # Change its parent_id to the file_id of the new folder
         file.parent_id = newFolderId
-        # Discovered by test_swap in line 219. Need to re-establish the relationship                 between current file, destination, and the current file's parent when the                 destination's parent is current file
+        # Discovered by test_swap in line 219. Need to re-establish the relationship between current file, destination, and the current file's parent when the                 destination's parent is current file
         if (fileId == self.documents[newFolderId].parent_id):
             self.documents[newFolderId].parent_id = original_parent_id
             self.documents[original_parent_id].sub.append(self.documents[newFolderId])
@@ -145,7 +145,7 @@ class SigmaFileSystem:
         self.print_files_helper(0, self.documents[0])
         
       
-    # @functionality: Print the current file's name, then recursively go to the deeper                           files and print them using a wider indent until there are no files
+    # @functionality: Print the current file's name, then recursively go to the deeper files and print them using a wider indent until there are no files
     # @runtime: n
     def print_files_helper(self, count, file):
         # count is the # of spaces as indent
@@ -208,7 +208,7 @@ def test_swap():
     fs.print_files()
     
     
-# There are many other valuable tests to do such as test_stress, but I don't want to spend   excessive amount of time in this assignment because I think the example is pretty         exhaustive and the file system is usable
+# There are many other valuable tests to do such as test_stress, but I don't want to spend excessive amount of time in this assignment because I think the example is pretty         exhaustive and the file system is usable
 
 
     
